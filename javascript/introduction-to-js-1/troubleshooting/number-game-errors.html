@@ -42,16 +42,17 @@
 </body>
 
 <script>
-  let randomNumber = Math.floor(Math.random()) + 1;
+  let randomNumber = Math.floor(Math.random() * 100) + 1;
+  
 
   const guesses = document.querySelector('.guesses');
   const lastResult = document.querySelector('.lastResult');
-  const lowOrHi = document.querySelector('lowOrHi');
+  const lowOrHi = document.querySelector('.lowOrHi');
   const guessSubmit = document.querySelector('.guessSubmit');
   const guessField = document.querySelector('.guessField');
 
   let guessCount = 1;
-  let resetButton;
+  let resetButton ;
 
   function checkGuess() {
 
@@ -78,12 +79,13 @@
         lowOrHi.textContent = 'Last guess was too high!';
       }
     }
+  
 
     guessCount++;
     guessField.value = '';
     guessField.focus();
   }
-  guessSubmit.addeventListener('click', checkGuess);
+  guessSubmit.addEventListener('click', checkGuess);
 
   function setGameOver() {
 	  guessField.disabled = true;
@@ -110,7 +112,8 @@
 
 	  lastResult.style.backgroundColor = 'white';
 
-	  randomNumber = Math.floor(Math.random()) + 1;
+	  randomNumber = Math.floor(Math.random() * 100) + 1;
   }
+
 </script>
 </html>
